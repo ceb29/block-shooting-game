@@ -1,6 +1,6 @@
 #block shooting game
 #simple game to learn pygame and practice using classes in python
-#need to clean up with functions some parts
+#need to clean up with functions on some parts
 #mouse to move, right click to shoot, and scroll wheel to rotate
 #press enter to try again
 #each round player player ammo and block count are the same

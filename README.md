@@ -1,5 +1,5 @@
 # block-shooting-game
-Simple game to practice using classes in python and learn more about how old school games work. Made using pygame.
+A simple python game I made to practice using classes in python and learn more about how old school games work. Made using pygame.
 
 Controls:
 -mouse to move
