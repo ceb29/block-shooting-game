@@ -24,6 +24,7 @@ def main():
             ammo = game.text.get_ammo()
             if event.type == KEYDOWN: #exit game if esc key pressed
                 if event.key == K_ESCAPE: 
+                    game.write_high_score()
                     running = False
                 if event.key == K_RETURN and game.get_status() == 1:
                         game.restart()
@@ -36,8 +37,8 @@ def main():
                         ammo -= 1
                         game.text.set_ammo(ammo)
             elif event.type == pygame.QUIT:
+                game.write_high_score()
                 running = False
-        #set up next level
         game.update()  
     pygame.quit()
 
