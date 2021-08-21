@@ -1,7 +1,5 @@
 import pygame
-import random
 import sprite_classes
-from pygame.constants import K_RETURN, MOUSEBUTTONDOWN, RLEACCEL, K_ESCAPE, KEYDOWN #buttons used in game
 from constants import *
 
 class Game_Text():

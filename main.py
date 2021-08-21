@@ -8,7 +8,7 @@
 #game is over if player runs out of ammo or hits block
 import pygame
 from game_classes import Game
-from pygame.constants import K_RETURN, MOUSEBUTTONDOWN, RLEACCEL, K_ESCAPE, KEYDOWN #buttons used in game
+from pygame.constants import K_RETURN, MOUSEBUTTONDOWN, K_ESCAPE, KEYDOWN #buttons used in game
 from constants import *
 
 pygame.init()

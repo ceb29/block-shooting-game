@@ -1,6 +1,6 @@
 import pygame
 import random
-from pygame.constants import K_RETURN, MOUSEBUTTONDOWN, RLEACCEL, K_ESCAPE, KEYDOWN #buttons used in game
+from pygame.constants import RLEACCEL #buttons used in game
 from constants import COLOR_BLACK
 
 class Sprites(pygame.sprite.Sprite):
@@ -93,42 +93,39 @@ class Projectile(Sprites):
         self.player_size = player_size
         self.x = center[0]
         self.y = center[1]
-        self.rect = self.surf1.get_rect(center = (self.x, self.y)) 
+        #change firing position based off player orientation
+        if self.front == 1:
+            self.rect = self.surf1.get_rect(center = (self.x, self.y-25)) 
+        elif self.front == 2:
+            self.rect = self.surf1.get_rect(center = (self.x+25, self.y+3)) 
+        elif self.front == 3:
+            self.rect = self.surf1.get_rect(center = (self.x, self.y+25)) 
+        else:
+            self.rect = self.surf1.get_rect(center = (self.x-25, self.y+3))
 
     def update(self):
-        #change firing position based off player orientation
         #keep updating position until out of bounds
         if self.front == 1:
-            if self.orientation_flag == 0: #fixes projectile firing position
-                self.rect.move_ip(0, -self.player_size/2)
-                self.orientation_flag = 1
             if self.rect.top > 1:
                 self.rect.move_ip(0, -self.p_speed)
             else:
-                self.kill()
+                self.kill() 
         elif self.front == 2:
-
             if self.rect.right < self.screen_width:
                 self.rect.move_ip(self.p_speed, 0)
             else:
                 self.kill()
         elif self.front == 3:
-            if self.orientation_flag == 0:
-                self.rect.move_ip(0, self.player_size/2)
-                self.orientation_flag = 1
             if self.rect.bottom < self.screen_height:
                 self.rect.move_ip(0, self.p_speed)
             else:
                 self.kill()
-        elif self.front == 4:
-            if self.orientation_flag == 0:
-                self.rect.move_ip(-self.player_size/2, 0)
-                self.orientation_flag = 1
+        else:
             if self.rect.left > 1:
                 self.rect.move_ip(-self.p_speed, 0)
             else:
-                self.kill()       
-
+                self.kill()
+                
 class Enemy(Sprites):
     def __init__(self, screen_width, screen_height, creation_flag, creation_type, center):
         Sprites.__init__(self, screen_width, screen_height, center)
