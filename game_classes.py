@@ -180,10 +180,8 @@ class Game():
 
     #functions for collisions between sprites       
     def en_plr_collisions(self):
-        for en in self.enemies:
-            if pygame.sprite.spritecollideany(self.player1, self.enemies, collided=pygame.sprite.collide_mask):
-                self.game_status = 1
-                
+        if pygame.sprite.spritecollideany(self.player1, self.enemies, collided=pygame.sprite.collide_mask):
+            self.game_status = 1
             
     def en_pro_collisions(self):
         for en in self.enemies:
